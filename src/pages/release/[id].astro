@@ -1,0 +1,24 @@
+---
+import ReleaseDocCard from "../../components/ReleaseDocCard.astro";
+import Layout from "../../layouts/Layout.astro";
+import { getLatestLaunches, getLaunch } from "../../services/spacex";
+
+const { id } = Astro.params;
+
+let doc;
+if (id) {
+  doc = await getLaunch({ id });
+}
+
+export async function getStaticPaths() {
+  const data = await getLatestLaunches({ limit: 10 });
+
+  return data.docs.map((doc) => ({
+    params: { id: doc.id },
+  }));
+}
+---
+
+<Layout title={doc ? doc.name : "404"}>
+  {doc && <ReleaseDocCard doc={doc} />}
+</Layout>

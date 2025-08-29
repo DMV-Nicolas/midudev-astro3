@@ -1,25 +1,9 @@
 ---
 import ReleaseDocCard from "../components/ReleaseDocCard.astro";
 import Layout from "../layouts/Layout.astro";
-import { type APISpaceXResponse } from "../types/api";
+import { getLatestLaunches } from "../services/spacex";
 
-const res = await fetch("https://api.spacexdata.com/v5/launches/query", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-  },
-  body: JSON.stringify({
-    query: {},
-    options: {
-      limit: 10,
-      sort: {
-        date_unix: "asc",
-      },
-    },
-  }),
-});
-
-const data = (await res.json()) as APISpaceXResponse;
+const data = await getLatestLaunches({ limit: 10 });
 ---
 
 <Layout title="Releases">
