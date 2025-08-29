@@ -1,0 +1,29 @@
+---
+import ReleaseDocCard from "../components/ReleaseDocCard.astro";
+import Layout from "../layouts/Layout.astro";
+import { type APISpaceXResponse } from "../types/api";
+
+const res = await fetch("https://api.spacexdata.com/v5/launches/query", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({
+    query: {},
+    options: {
+      limit: 10,
+      sort: {
+        date_unix: "asc",
+      },
+    },
+  }),
+});
+
+const data = (await res.json()) as APISpaceXResponse;
+---
+
+<Layout title="Releases">
+  <div class="flex flex-col gap-4">
+    {data.docs.map((doc) => <ReleaseDocCard doc={doc} />)}
+  </div>
+</Layout>

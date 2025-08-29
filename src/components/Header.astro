@@ -1,6 +1,7 @@
 ---
 import HeaderLink from "./HeaderLink.astro";
 import InfoIcon from "./icons/InfoIcon.astro";
+import MarkdownIcon from "./icons/MarkdownIcon.astro";
 import RocketIcon from "./icons/RocketIcon.astro";
 ---
 
@@ -10,7 +11,7 @@ import RocketIcon from "./icons/RocketIcon.astro";
     class="flex items-center justify-between p-6 lg:px-8"
   >
     <div class="flex lg:flex-1">
-      <a href="#" class="-m-1.5 p-1.5">
+      <a href="/" class="-m-1.5 p-1.5">
         <span class="sr-only">SpaceX Launches</span>
         <img
           src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500"
@@ -45,10 +46,12 @@ import RocketIcon from "./icons/RocketIcon.astro";
       <HeaderLink href="/about">
         <InfoIcon slot="icon" /> About
       </HeaderLink>
-      <HeaderLink href="#">
+      <HeaderLink href="/releases">
         <RocketIcon slot="icon" /> Latest releases
       </HeaderLink>
-      <HeaderLink href="#">Marketplace</HeaderLink>
+      <HeaderLink href="/markdown">
+        <MarkdownIcon slot="icon" /> Markdown
+      </HeaderLink>
       <HeaderLink href="#">Company</HeaderLink>
     </div>
     <div class="hidden lg:flex lg:flex-1 lg:justify-end">
