@@ -30,6 +30,9 @@ interface GetLaunchOptions {
 
 export async function getLaunch({ id }: GetLaunchOptions) {
   const res = await fetch(`https://api.spacexdata.com/v5/launches/${id}`)
+  if (!res.ok) {
+    return null
+  }
 
   const data = (await res.json()) as Doc
 
