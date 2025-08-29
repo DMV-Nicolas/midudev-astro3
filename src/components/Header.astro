@@ -1,15 +1,17 @@
 ---
-console.log("javascript loaded");
+import HeaderLink from "./HeaderLink.astro";
+import InfoIcon from "./icons/InfoIcon.astro";
+import RocketIcon from "./icons/RocketIcon.astro";
 ---
 
-<header class="absolute inset-x-0 top-0 z-50">
+<header>
   <nav
     aria-label="Global"
     class="flex items-center justify-between p-6 lg:px-8"
   >
     <div class="flex lg:flex-1">
       <a href="#" class="-m-1.5 p-1.5">
-        <span class="sr-only">Your Company</span>
+        <span class="sr-only">SpaceX Launches</span>
         <img
           src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500"
           alt=""
@@ -40,10 +42,14 @@ console.log("javascript loaded");
       </button>
     </div>
     <div class="hidden lg:flex lg:gap-x-12">
-      <a href="#" class="text-sm/6 font-semibold text-white">Product</a>
-      <a href="#" class="text-sm/6 font-semibold text-white">Features</a>
-      <a href="#" class="text-sm/6 font-semibold text-white">Marketplace</a>
-      <a href="#" class="text-sm/6 font-semibold text-white">Company</a>
+      <HeaderLink href="/about">
+        <InfoIcon slot="icon" /> About
+      </HeaderLink>
+      <HeaderLink href="#">
+        <RocketIcon slot="icon" /> Latest releases
+      </HeaderLink>
+      <HeaderLink href="#">Marketplace</HeaderLink>
+      <HeaderLink href="#">Company</HeaderLink>
     </div>
     <div class="hidden lg:flex lg:flex-1 lg:justify-end">
       <a href="#" class="text-sm/6 font-semibold text-white"
