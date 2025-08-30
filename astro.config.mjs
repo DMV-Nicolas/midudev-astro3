@@ -8,4 +8,6 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
+  site: "https://DMV-Nicolas.github.io",
+  base: "/midudev-astro3",
 })

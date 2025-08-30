@@ -31,7 +31,11 @@ if (doc.upcoming) {
 <article
   class="flex flex-col rounded-lg bg-gray-800/50 shadow-lg overflow-hidden border border-gray-700 hover:border-blue-500 transition-colors duration-300"
 >
-  <a href={`/release/${doc.id}`} rel="noopener noreferrer" class="block">
+  <a
+    href={`/midudev-astro3/release/${doc.id}`}
+    rel="noopener noreferrer"
+    class="block"
+  >
     <img
       src={doc.links.patch.large || "/placeholder.png"}
       alt={`Parche de la misión ${doc.name}`}
